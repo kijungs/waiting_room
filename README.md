@@ -25,9 +25,11 @@ Reference
 If you use this code as part of any published research, please acknowledge the following paper.
 ```
 @inproceedings{shin2017wrs,
-  author    = {Kijung Shin},
-  title     = {WRS: Waiting Room Sampling for Accurate Triangle Counting in Real Graph Streams},
-  booktitle = {ICDM},
-  year      = {2017}
+  author       = {Kijung Shin},
+  title        = {WRS: Waiting Room Sampling for Accurate Triangle Counting in Real Graph Streams},
+  booktitle    = {ICDM},
+  pages        = {1087--1092},
+  year         = {2017},
+  organization = {IEEE}
 }
 ```
