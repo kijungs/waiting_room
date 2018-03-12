@@ -25,7 +25,7 @@ import java.util.Random;
 /**
  * Implementation of WRS
  *
- * @author anonymized
+ * @author kijungs (kijungs@cs.cmu.edu)
  */
 public class WRS {
 

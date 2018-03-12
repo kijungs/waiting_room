@@ -22,7 +22,7 @@ import java.util.Random;
 /**
  * Batch Process
  *
- * @author anonymized
+ * @author kijungs (kijungs@cs.cmu.edu)
  */
 public class Batch {
 

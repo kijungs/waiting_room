@@ -22,7 +22,7 @@ import java.io.IOException;
 /**
  * Example using WRS
  *
- * @author anonymized
+ * @author kijungs (kijungs@cs.cmu.edu)
  */
 public class Example {
 
