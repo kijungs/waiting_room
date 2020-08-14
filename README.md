@@ -1,7 +1,7 @@
 WRS: Waiting Room Sampling for Accurate Triangle Counting in Real Graph Streams
 ========================
 
-**WRS (Waiting Room Sampling)** is a single-pass streaming algorithm for global and local triangle counting in real graph streams. 
+**WRS (Waiting Room Sampling)** is a single-pass streaming algorithm for global and local triangle counting in (fully-dynamic) real graph streams. 
 **WRS** exploits a temporal dependency pattern in real dynamic graph streams.
 **WRS** has the following properties: 
  * *fast and any time*: **WRS** scales linearly with the number of edges in the input graph stream, and gives estimates at any time while the input graph grows
@@ -10,7 +10,7 @@ WRS: Waiting Room Sampling for Accurate Triangle Counting in Real Graph Streams
 
 Datasets
 ========================
-The download links for the datasets used in the paper are [here](http://www.cs.cmu.edu/~kijungs/codes/wrs/)
+The download links for the datasets used in the paper are [here](http://dmlab.kaist.ac.kr/wrs/)
 
 Building and Running WRS
 ========================
