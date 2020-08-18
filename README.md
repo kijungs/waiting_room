@@ -34,11 +34,11 @@ If you use this code as part of any published research, please acknowledge the f
 }
 
 @article{lee2020temporal,
-  title     ={Temporal locality-aware sampling for accurate triangle counting in real graph streams},
-  author    ={Lee, Dongjin and Shin, Kijung and Faloutsos, Christos},
-  journal   ={The VLDB Journal},
-  pages     ={1--25},
-  year      ={2020},
-  publisher ={Springer}
+  title     = {Temporal locality-aware sampling for accurate triangle counting in real graph streams},
+  author    = {Lee, Dongjin and Shin, Kijung and Faloutsos, Christos},
+  journal   = {The VLDB Journal},
+  pages     = {1--25},
+  year      = {2020},
+  publisher = {Springer}
 }
 ```
