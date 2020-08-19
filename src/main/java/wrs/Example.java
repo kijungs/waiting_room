@@ -6,14 +6,18 @@ package wrs;
  * WRS: Waiting Room Sampling for Accurate Triangle Counting in Real Graph Streams
  * Authors: Kijung Shin
  *
- * Version: 1.0
- * Date: May 24, 2017
- * Main Contact: Kijung Shin (kijungs@cs.cmu.edu)
+ * Temporal Locality-Aware Sampling for Accurate Triangle Counting in Real Graph Streams
+ * Authors: Dongjin Lee, Kijung Shin, and Christos Faloutsos
+ *
+ * Version: 2.0
+ * Date: Aug 18, 2020
+ * Main Contact: Kijung Shin (kijungs@kaist.ac.kr)
  *
  * This software is free of charge under research purposes.
  * For commercial purposes, please contact the author.
  =================================================================================
  */
+
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -21,8 +25,6 @@ import java.io.IOException;
 
 /**
  * Example using WRS
- *
- * @author kijungs (kijungs@cs.cmu.edu)
  */
 public class Example {
 
@@ -34,7 +36,7 @@ public class Example {
 
         final String dataPath = "example_graph.txt";
         final String delim = "\t";
-        final WRS wrs = new WRS(35000, 0.1, 0);
+        final WRS wrs = new WRSIns(35000, 0.1, 0);
 
         BufferedReader br = new BufferedReader(new FileReader(dataPath));
 
@@ -47,7 +49,7 @@ public class Example {
             }
 
             int[] edge = parseEdge(line, delim);
-            wrs.processEdge(edge[0], edge[1]);
+            wrs.processEdge(edge[0], edge[1], true);
 
             if((++count) % 10000 == 0) {
                 System.out.println("Number of Edges Processed: " + count +", Estimated Number of Global Triangles: " + wrs.getGlobalTriangle());
@@ -55,8 +57,6 @@ public class Example {
         }
 
         br.close();
-
-        return;
     }
 
     private static int[] parseEdge(String line, String delim) {
