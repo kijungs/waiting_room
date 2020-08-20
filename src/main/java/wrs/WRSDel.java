@@ -31,16 +31,16 @@ import java.util.Random;
  */
 public class WRSDel extends WRS {
 
-    private Int2ObjectOpenHashMap<Int2BooleanOpenHashMap> srcToDsts = new Int2ObjectOpenHashMap();
-    private Int2DoubleOpenHashMap nodeToTriangles = new Int2DoubleOpenHashMap();
+    private Int2ObjectOpenHashMap<Int2BooleanOpenHashMap> srcToDsts = new Int2ObjectOpenHashMap(); // graph composed of the sampled edges
+    private Int2DoubleOpenHashMap nodeToTriangles = new Int2DoubleOpenHashMap(); // local triangle counts
     private double globalTriangle = 0; // global triangles
 
     private long ER = 0;
-    private int nb = 0;
-    private int ng = 0;
+    private int nb = 0; // number of bad uncompensated deletions
+    private int ng = 0; // number of good uncompensated deletions
 
-    private final int sizeOfWaitingRoom;
-    private final int sizeOfReservoir;
+    private final int sizeOfWaitingRoom; // size of the waiting room
+    private final int sizeOfReservoir; // size of the reservoir
     private final LongLinkedOpenHashSet samplesWaitingRoom;
     private final long[] samplesReservoir;
     private final Long2IntOpenHashMap edgeToIndex = new Long2IntOpenHashMap();
