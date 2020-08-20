@@ -97,13 +97,13 @@ public class BatchIns {
 
         }
 
-        BufferedWriter bw = new BufferedWriter(new FileWriter(outputPath + "/global_count_ins.out"));
+        BufferedWriter bw = new BufferedWriter(new FileWriter(outputPath + "/global_count.out"));
 
         bw.write(String.valueOf(wrs.getGlobalTriangle()));
         bw.newLine();
         bw.close();
 
-        bw = new BufferedWriter(new FileWriter(outputPath + "/local_counts_ins.out"));
+        bw = new BufferedWriter(new FileWriter(outputPath + "/local_counts.out"));
 
         Map<Integer, Double> localCounts = wrs.getLocalTriangle();
         for(int node : localCounts.keySet()) {

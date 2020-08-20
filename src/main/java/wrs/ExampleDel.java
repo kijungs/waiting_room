@@ -35,7 +35,7 @@ public class ExampleDel {
     public static void main(String[] ar) throws IOException {
         final String dataPath = "example_graph_dynamic.txt";
         final String delim = "\t";
-        final WRSDel wrs = new WRSDel(35000, 0.1, 0, true);
+        final WRSDel wrs = new WRSDel(35000, 0.1, 0);
 
         BufferedReader br = new BufferedReader(new FileReader(dataPath));
 

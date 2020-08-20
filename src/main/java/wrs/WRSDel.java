@@ -46,23 +46,21 @@ public class WRSDel {
     private final Long2IntOpenHashMap edgeToIndex = new Long2IntOpenHashMap();
 
     private final Random random;
-    private final boolean lowerBound;
 
     /**
-     * create an instance for WRS_INS
+     * create an instance for WRS_DEL
      *
      * @param k maximum number of samples
      * @param alpha relative size of the waiting room (between 0 and 1)
      * @param randomSeed random seed
      */
-    public WRSDel(int k, double alpha, int randomSeed, boolean lowerBound) {
+    public WRSDel(int k, double alpha, int randomSeed) {
         this.random = new Random(randomSeed);
         this.sizeOfWaitingRoom = (int) (k * alpha);
         this.sizeOfReservoir = k - sizeOfWaitingRoom;
         this.samplesWaitingRoom = new LongLinkedOpenHashSet(sizeOfWaitingRoom);
         this.samplesReservoir = new long[sizeOfReservoir];
         this.nodeToTriangles.defaultReturnValue(0);
-        this.lowerBound = lowerBound;
     }
 
     /**
@@ -285,45 +283,7 @@ public class WRSDel {
                 globalTriangle += countSum;
             }
 
-        }
-
-        else if(lowerBound){
-
-            double countSum = 0;
-            for (int neighbor : srcMap.keySet()) {
-                if (dstMap.containsKey(neighbor)) {
-                    boolean srcFlag = srcMap.get(neighbor);
-                    boolean dstFlag = dstMap.get(neighbor);
-                    double count = 1;
-                    if (srcFlag == false && dstFlag == false) {
-                        count = weightTwo;
-                    } else if (srcFlag == false || dstFlag == false) {
-                        count = weightOne;
-                    }
-                    double value = nodeToTriangles.addTo(neighbor, - count);
-                    if(value < count) {
-                        nodeToTriangles.put(neighbor, 0);
-                    }
-                    countSum += count;
-                }
-            }
-
-            if (countSum > 0) {
-                double value = nodeToTriangles.addTo(src, - countSum);
-                if(value < countSum) {
-                    nodeToTriangles.put(src, 0);
-                }
-                value = nodeToTriangles.addTo(dst, - countSum);
-                if(value < countSum) {
-                    nodeToTriangles.put(dst, 0);
-                }
-                globalTriangle -= countSum;
-                globalTriangle = Math.max(0, globalTriangle);
-            }
-        }
-
-        else {
-
+        } else {
             double countSum = 0;
             for (int neighbor : srcMap.keySet()) {
                 if (dstMap.containsKey(neighbor)) {

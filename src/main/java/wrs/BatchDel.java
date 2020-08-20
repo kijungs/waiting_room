@@ -46,7 +46,7 @@ public class BatchDel {
         final double alpha = Double.valueOf(args[3]);
         System.out.println("alpha: " + alpha);
 
-        WRSDel wrs = new WRSDel(maxSampleNum, alpha, new Random().nextInt(), true);
+        WRSDel wrs = new WRSDel(maxSampleNum, alpha, new Random().nextInt());
 
         run(wrs, inputPath, "\t");
         output(wrs, outputPath);
@@ -96,13 +96,13 @@ public class BatchDel {
 
         }
 
-        BufferedWriter bw = new BufferedWriter(new FileWriter(outputPath + "/global_count_del.out"));
+        BufferedWriter bw = new BufferedWriter(new FileWriter(outputPath + "/global_count.out"));
 
         bw.write(String.valueOf(wrs.getGlobalTriangle()));
         bw.newLine();
         bw.close();
 
-        bw = new BufferedWriter(new FileWriter(outputPath + "/local_counts_del.out"));
+        bw = new BufferedWriter(new FileWriter(outputPath + "/local_counts.out"));
 
         Map<Integer, Double> localCounts = wrs.getLocalTriangle();
         for(int node : localCounts.keySet()) {
