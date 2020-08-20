@@ -24,19 +24,18 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * Example using WRS
+ * Example using WRS_DELj
  */
-public class Example {
+public class ExampleDel {
 
     /**
-     * Example Code for WRS
+     * Example Code for WRS_DEL
      * @throws IOException
      */
     public static void main(String[] ar) throws IOException {
-
-        final String dataPath = "example_graph.txt";
+        final String dataPath = "example_graph_dynamic.txt";
         final String delim = "\t";
-        final WRS wrs = new WRSIns(35000, 0.1, 0);
+        final WRSDel wrs = new WRSDel(35000, 0.1, 0, true);
 
         BufferedReader br = new BufferedReader(new FileReader(dataPath));
 
@@ -49,7 +48,7 @@ public class Example {
             }
 
             int[] edge = parseEdge(line, delim);
-            wrs.processEdge(edge[0], edge[1], true);
+            wrs.processEdge(edge[0], edge[1], edge[2] >= 0);
 
             if((++count) % 10000 == 0) {
                 System.out.println("Number of Edges Processed: " + count +", Estimated Number of Global Triangles: " + wrs.getGlobalTriangle());
@@ -60,11 +59,11 @@ public class Example {
     }
 
     private static int[] parseEdge(String line, String delim) {
-
         String[] tokens = line.split(delim);
         int src = Integer.valueOf(tokens[0]);
         int dst = Integer.valueOf(tokens[1]);
+        int add = Integer.valueOf(tokens[2]);
 
-        return new int[]{src, dst};
+        return new int[]{src, dst, add};
     }
 }

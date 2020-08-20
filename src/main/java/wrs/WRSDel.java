@@ -29,7 +29,7 @@ import java.util.Random;
 /**
  * Implementation of WRS_DEL
  */
-public class WRSDel extends WRS {
+public class WRSDel {
 
     private Int2ObjectOpenHashMap<Int2BooleanOpenHashMap> srcToDsts = new Int2ObjectOpenHashMap(); // graph composed of the sampled edges
     private Int2DoubleOpenHashMap nodeToTriangles = new Int2DoubleOpenHashMap(); // local triangle counts

@@ -28,7 +28,7 @@ import java.util.Random;
 /**
  * Implementation of WRS_INS
  */
-public class WRSIns extends WRS {
+public class WRSIns {
 
     private Int2ObjectOpenHashMap<Int2BooleanOpenHashMap> srcToDsts = new Int2ObjectOpenHashMap(); // graph composed of the sampled edges
     private Int2DoubleOpenHashMap nodeToTriangles = new Int2DoubleOpenHashMap(); // local triangle counts
@@ -69,8 +69,7 @@ public class WRSIns extends WRS {
      * @param dst destination node of the new edge
      * @param add flag to determine edge insertion and deletion
      */
-    public void processEdge(int src, int dst, boolean add) {
-        add = true;
+    public void processEdge(int src, int dst) {
         if(src == dst) { //ignore self loop
             return;
         }
@@ -208,7 +207,6 @@ public class WRSIns extends WRS {
                 }
                 countSum += count;
                 nodeToTriangles.addTo(neighbor, count); // update the local triangle count of the common neighbor
-
             }
         }
 
@@ -217,7 +215,5 @@ public class WRSIns extends WRS {
             nodeToTriangles.addTo(dst, countSum); // update the local triangle count of the destination node
             globalTriangle += countSum; // update the global triangle count
         }
-
     }
-
 }
