@@ -37,7 +37,9 @@ If you use this code as part of any published research, please acknowledge the f
   title     = {Temporal locality-aware sampling for accurate triangle counting in real graph streams},
   author    = {Lee, Dongjin and Shin, Kijung and Faloutsos, Christos},
   journal   = {The VLDB Journal},
-  pages     = {1--25},
+  volume    = {29},
+  number    = {6},
+  pages     = {1501--1525},
   year      = {2020},
   publisher = {Springer}
 }
